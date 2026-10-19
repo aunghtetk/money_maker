@@ -314,6 +314,7 @@ function renderImpact() {
       : 0;
 
   setText("categoryName", purchase.category);
+  updateCategoryIcon(purchase.category);
 
   setText(
     "categoryNumbers",
@@ -390,3 +391,46 @@ document.addEventListener("DOMContentLoaded", function() {
     lucide.createIcons();
   }
 });
+
+function updateCategoryIcon(categoryName) {
+  const icon = document.getElementById("categoryImpactIcon");
+
+  if (!icon) return;
+
+  const categoryIcons = {
+    Food: "utensils",
+    Shopping: "shopping-bag",
+    Transport: "car-front",
+    Bills: "receipt",
+    Entertainment: "gamepad-2",
+    Other: "package"
+  };
+
+  const categoryColors = {
+    Food: "#ff526a",
+    Shopping: "#ae35e8",
+    Transport: "#00a971",
+    Bills: "#ff831f",
+    Entertainment: "#2678f9",
+    Other: "#8492a6"
+  };
+
+  const iconName = categoryIcons[categoryName] || "package";
+  const iconColor = categoryColors[categoryName] || "#8492a6";
+
+  icon.setAttribute("data-lucide", iconName);
+  icon.style.color = iconColor;
+
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+
+  // Lucide replaces the <i> element with an <svg>.
+  // Apply the color to the rendered SVG.
+  const renderedIcon =
+    document.getElementById("categoryImpactIcon");
+
+  if (renderedIcon) {
+    renderedIcon.style.color = iconColor;
+  }
+}

@@ -565,3 +565,9 @@ select {
   color: #142039;
   font-size: 14px;
 }
+#categoryImpactIcon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.2;
+  transition: color 0.3s ease;
+}
