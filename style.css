@@ -671,7 +671,24 @@ button {
 .bottom-nav a:hover {
   color: #009965;
 }
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
 
+  min-width: 0;
+  padding: 5px 1px;
+
+  border: none;
+  background: transparent;
+  color: #7c8491;
+
+  font-size: 11px;
+  text-decoration: none;
+  cursor: pointer;
+}
 /* ICONS */
 
 .bottom-nav button svg,
