@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Money Mentor - Savings Goals</title>
+
+  <link rel="stylesheet" href="savings.css">
+
+  <script
+    src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"
+    defer>
+  </script>
+  <script src="savings.js" defer></script>
+</head>
+
+<body>
+  <main class="app">
+
+    <!-- SAVINGS GOALS PAGE -->
+    <section id="listPage" class="page">
+
+      <h1>Savings Goals</h1>
+
+      <div id="goalsList"></div>
+
+      <button class="new-goal" id="newGoalBtn">
+        <span class="plus">+</span>
+        Add New Saving Goal
+      </button>
+
+    </section>
+
+    <!-- ADD MONEY PAGE -->
+    <section id="moneyPage" class="page hidden">
+
+      <header>
+        <button class="back" data-back aria-label="Back">
+          <i data-lucide="arrow-left"></i>
+        </button>
+        <h2>Add Money</h2>
+      </header>
+
+      <div id="selectedGoal"></div>
+
+      <form id="moneyForm">
+
+        <label for="moneyAmount">Add Amount</label>
+        <input
+          id="moneyAmount"
+          type="number"
+          min="0.01"
+          step="0.01"
+          placeholder="$ 100.00"
+          required
+        >
+
+        <label for="moneyDate">Date</label>
+        <input id="moneyDate" type="date" required>
+
+        <label for="moneyNote">Note (optional)</label>
+        <input
+          id="moneyNote"
+          placeholder="e.g. From paycheck"
+        >
+
+        <button class="primary" type="submit">
+          Add Money
+        </button>
+
+      </form>
+    </section>
+
+    <!-- CREATE NEW GOAL PAGE -->
+    <section id="createPage" class="page hidden">
+
+      <header>
+        <button class="back" data-back aria-label="Back">
+          <i data-lucide="arrow-left"></i>
+        </button>
+        <h2>Add New Saving Goal</h2>
+      </header>
+
+      <form id="goalForm">
+
+        <label>Goal Icon</label>
+        <div class="icons" id="iconChoices"></div>
+
+        <label for="goalName">Goal Name</label>
+        <input
+          id="goalName"
+          placeholder="e.g. Vacation"
+          maxlength="40"
+          required
+        >
+
+        <label for="goalTarget">Target Amount</label>
+        <input
+          id="goalTarget"
+          type="number"
+          min="0.01"
+          step="0.01"
+          placeholder="$ 2,000.00"
+          required
+        >
+
+        <label for="goalDate">Target Date (optional)</label>
+        <input id="goalDate" type="date">
+
+        <label for="goalNote">Note (optional)</label>
+        <input id="goalNote" placeholder="Add a note...">
+
+        <button class="primary" type="submit">
+          Create Goal
+        </button>
+
+      </form>
+    </section>
+
+    <p id="message" role="status" aria-live="polite"></p>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav" id="bottomNav">
+
+      <a href="index.html">
+        <i data-lucide="house"></i>
+        Home
+      </a>
+
+      <a href="budget.html">
+        <i data-lucide="wallet"></i>
+        Budget
+      </a>
+
+      <a href="transactions.html">
+        <i data-lucide="receipt-text"></i>
+        Transactions
+      </a>
+
+      <a href="chat.html">
+        <i data-lucide="message-circle"></i>
+        AI Chat
+      </a>
+
+      <a href="savings.html" class="active">
+        <i data-lucide="target"></i>
+        Goals
+      </a>
+
+      <a href="menu.html">
+        <i data-lucide="menu"></i>
+        Menu
+      </a>
+
+    </nav>
+
+  </main>
+</body>
+</html>
