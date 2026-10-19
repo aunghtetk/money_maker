@@ -3,34 +3,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
   <title>Money Mentor - What-If Impact</title>
+
   <link rel="stylesheet" href="budget.css">
+
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
   <script src="budget.js" defer></script>
 </head>
+
 <body>
   <main class="app">
+
     <header class="header centered">
-      <a href="what-if-simulator.html" aria-label="Back">
+      <a href="what-if-simulator.html"
+         aria-label="Back to Simulator">
         <i data-lucide="arrow-left"></i>
       </a>
+
       <h1>What-If Simulator</h1>
     </header>
 
     <section class="purchase-card">
       <div class="purchase-icon">
-        <i data-lucide="gamepad-2"></i>
+        <i data-lucide="shopping-bag"></i>
       </div>
+
       <div class="purchase-info">
         <strong id="impactName">Gaming Console</strong>
-        <p>Category: <span id="impactCategory">Entertainment</span></p>
+        <p>
+          Category:
+          <span id="impactCategory">Entertainment</span>
+        </p>
       </div>
+
       <strong id="impactPrice">$500.00</strong>
     </section>
 
     <section class="card">
-      <h3><i data-lucide="chart-no-axes-column-increasing"></i> Budget Impact</h3>
+      <h3>
+        <i data-lucide="chart-no-axes-column-increasing"></i>
+        Budget Impact
+      </h3>
 
       <div class="impact-row">
         <span>Remaining budget before</span>
@@ -50,17 +66,20 @@
       <hr>
 
       <div class="impact-row">
-        <span>This purchase uses of your monthly budget</span>
+        <span>Percentage of monthly budget</span>
         <strong id="purchasePercent">33%</strong>
       </div>
     </section>
 
     <section class="card">
-      <h3><i data-lucide="gamepad-2"></i> Category Impact</h3>
+      <h3>
+        <i data-lucide="gamepad-2"></i>
+        Category Impact
+      </h3>
 
       <div class="impact-row">
         <strong id="categoryName">Entertainment</strong>
-        <strong id="categoryNumbers">$100 / $200</strong>
+        <strong id="categoryNumbers">$600 / $200</strong>
       </div>
 
       <div class="progress">
@@ -71,29 +90,60 @@
     </section>
 
     <section class="card">
-      <h3><i data-lucide="target"></i> Savings Goal Impact</h3>
+      <h3>
+        <i data-lucide="target"></i>
+        Savings Goal Impact
+      </h3>
+
       <p id="savingsMessage">
-        See how this purchase could affect your savings goals.
+        See how this purchase could affect your savings.
       </p>
     </section>
 
     <div class="actions">
-      <a href="what-if-simulator.html" class="outline-button">
+      <a href="what-if-simulator.html"
+         class="outline-button">
         Try Another Scenario
       </a>
-      <a href="budget.html" class="primary-button">
+
+      <a href="budget.html"
+         class="primary-button">
         Back to Budget
       </a>
     </div>
 
     <nav class="bottom-nav">
-      <a href="index.html"><i data-lucide="house"></i><span>Home</span></a>
-      <a href="budget.html" class="active"><i data-lucide="wallet"></i><span>Budget</span></a>
-      <a href="transactions.html"><i data-lucide="receipt-text"></i><span>Transactions</span></a>
-      <a href="ai-chat.html"><i data-lucide="message-circle"></i><span>AI Chat</span></a>
-      <a href="savings.html"><i data-lucide="target"></i><span>Goals</span></a>
-      <a href="menu.html"><i data-lucide="menu"></i><span>Menu</span></a>
+      <a href="index.html">
+        <i data-lucide="house"></i>
+        <span>Home</span>
+      </a>
+
+      <a href="budget.html" class="active">
+        <i data-lucide="wallet"></i>
+        <span>Budget</span>
+      </a>
+
+      <a href="transactions.html">
+        <i data-lucide="receipt-text"></i>
+        <span>Transactions</span>
+      </a>
+
+      <a href="ai-chat.html">
+        <i data-lucide="message-circle"></i>
+        <span>AI Chat</span>
+      </a>
+
+      <a href="savings.html">
+        <i data-lucide="target"></i>
+        <span>Goals</span>
+      </a>
+
+      <a href="menu.html">
+        <i data-lucide="menu"></i>
+        <span>Menu</span>
+      </a>
     </nav>
+
   </main>
 </body>
 </html>

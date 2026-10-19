@@ -3,63 +3,114 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
   <title>Money Mentor - What-If Simulator</title>
+
   <link rel="stylesheet" href="budget.css">
+
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
   <script src="budget.js" defer></script>
 </head>
+
 <body>
   <main class="app">
+
     <header class="header centered">
-      <a href="budget.html" aria-label="Back">
+      <a href="budget.html" aria-label="Back to Budget">
         <i data-lucide="arrow-left"></i>
       </a>
       <h1>What-If Simulator</h1>
     </header>
 
     <p class="description">
-      See how a potential purchase could affect your budget and goals.
+      See how a potential purchase could affect
+      your budget and goals.
     </p>
 
     <form id="simulatorForm" class="simulator-form">
-      <label for="purchaseName">What do you want to buy?</label>
-      <input id="purchaseName" type="text"
-             placeholder="Game Console" required>
 
-      <label for="purchaseAmount">How much will it cost?</label>
+      <label for="purchaseName">
+        What do you want to buy?
+      </label>
+
+      <input
+        type="text"
+        id="purchaseName"
+        placeholder="Game Console"
+        required
+      >
+
+      <label for="purchaseAmount">
+        How much will it cost?
+      </label>
+
       <div class="money-input">
         <span>$</span>
-        <input id="purchaseAmount" type="number"
-               min="0.01" step="0.01"
-               placeholder="500.00" required>
+        <input
+          type="number"
+          id="purchaseAmount"
+          min="0.01"
+          step="0.01"
+          placeholder="500.00"
+          required
+        >
       </div>
 
       <label for="purchaseCategory">
         Which category does this belong to?
       </label>
+
       <select id="purchaseCategory" required>
         <option value="Food">Food</option>
         <option value="Shopping">Shopping</option>
         <option value="Transport">Transport</option>
         <option value="Bills">Bills</option>
-        <option value="Entertainment" selected>Entertainment</option>
+        <option value="Entertainment" selected>
+          Entertainment
+        </option>
         <option value="Other">Other</option>
       </select>
 
       <button type="submit" class="primary-button">
         See Impact
       </button>
+
     </form>
 
     <nav class="bottom-nav">
-      <a href="index.html"><i data-lucide="house"></i><span>Home</span></a>
-      <a href="budget.html" class="active"><i data-lucide="wallet"></i><span>Budget</span></a>
-      <a href="transactions.html"><i data-lucide="receipt-text"></i><span>Transactions</span></a>
-      <a href="ai-chat.html"><i data-lucide="message-circle"></i><span>AI Chat</span></a>
-      <a href="savings.html"><i data-lucide="target"></i><span>Goals</span></a>
-      <a href="menu.html"><i data-lucide="menu"></i><span>Menu</span></a>
+      <a href="index.html">
+        <i data-lucide="house"></i>
+        <span>Home</span>
+      </a>
+
+      <a href="budget.html" class="active">
+        <i data-lucide="wallet"></i>
+        <span>Budget</span>
+      </a>
+
+      <a href="transactions.html">
+        <i data-lucide="receipt-text"></i>
+        <span>Transactions</span>
+      </a>
+
+      <a href="ai-chat.html">
+        <i data-lucide="message-circle"></i>
+        <span>AI Chat</span>
+      </a>
+
+      <a href="savings.html">
+        <i data-lucide="target"></i>
+        <span>Goals</span>
+      </a>
+
+      <a href="menu.html">
+        <i data-lucide="menu"></i>
+        <span>Menu</span>
+      </a>
     </nav>
+
   </main>
 </body>
 </html>
