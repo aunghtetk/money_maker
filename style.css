@@ -692,16 +692,14 @@ button {
 /* ICONS */
 
 .bottom-nav button svg,
-.bottom-nav .nav-link svg {
+.bottom-nav a svg {
   width: 25px;
   height: 25px;
   stroke-width: 2;
 }
-
 /* ACTIVE PAGE */
-
 .bottom-nav button.active,
-.bottom-nav .nav-link.active {
+.bottom-nav a.active {
   color: #008f6b;
   font-weight: 600;
 }
