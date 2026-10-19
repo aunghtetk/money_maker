@@ -208,7 +208,7 @@ function setupSimulator() {
       JSON.stringify(purchase)
     );
 
-    window.location.href = "what-if-impact.html";
+    window.location.href = "what_if_impact.html";
   });
 }
 
@@ -235,14 +235,14 @@ function renderImpact() {
     !Number.isFinite(purchase.amount) ||
     purchase.amount <= 0
   ) {
-    window.location.replace("what-if-simulator.html");
+    window.location.replace("what_if_simulator.html");
     return;
   }
 
   const category = getCategory(purchase.category);
 
   if (!category) {
-    window.location.replace("what-if-simulator.html");
+    window.location.replace("what_if_simulator.html");
     return;
   }
 
