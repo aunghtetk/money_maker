@@ -1,0 +1,294 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #e9eef1;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #101844;
+}
+
+.app {
+  max-width: 430px;
+  min-height: 100vh;
+  margin: auto;
+  background: #f4f8fa;
+  position: relative;
+  padding-bottom: 96px;
+}
+
+.page {
+  padding: 38px 17px 28px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+h1 {
+  font-size: 29px;
+  margin: 18px 8px 26px;
+  font-weight: 750;
+}
+
+/* PAGE HEADERS */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 14px 0 48px;
+}
+
+header h2 {
+  font-size: 21px;
+  margin: 0;
+}
+
+.back {
+  position: absolute;
+  left: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: #101844;
+}
+
+/* SAVINGS GOAL CARDS */
+
+.goal-card {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  text-align: left;
+  border: 0;
+  background: #fff;
+  border-radius: 17px;
+  padding: 23px 13px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  color: inherit;
+  box-shadow: 0 2px 8px #dce6eb38;
+}
+
+.goal-icon {
+  width: 66px;
+  height: 66px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  font-size: 35px;
+}
+
+.green {
+  background: #dff9ed;
+  color: #009761;
+}
+
+.red {
+  background: #ffebed;
+  color: #ff3447;
+}
+
+.blue {
+  background: #dff2ff;
+  color: #168efa;
+}
+
+.goal-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.goal-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.percent {
+  color: #009761;
+}
+
+/* PROGRESS BAR */
+
+.progress {
+  height: 12px;
+  background: #e2e6ec;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 11px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #00c780;
+  border-radius: 20px;
+}
+
+.progress-fill.bluebar {
+  background: #209cff;
+}
+
+.goal-detail {
+  color: #626f9b;
+  font-size: 15px;
+}
+
+/* ADD NEW GOAL BUTTON */
+
+.new-goal {
+  width: 100%;
+  border: 1.5px dashed #d2e1f1;
+  background: transparent;
+  border-radius: 16px;
+  padding: 17px;
+  color: #6475a2;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.plus {
+  display: inline-grid;
+  place-items: center;
+  background: #009a66;
+  color: #fff;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 24px;
+  margin-right: 9px;
+}
+
+/* INPUT FIELDS */
+
+label {
+  display: block;
+  margin: 22px 0 9px;
+  font-size: 15px;
+  color: #111827;
+}
+
+input {
+  width: 100%;
+  height: 52px;
+  padding: 12px 14px;
+  border: 1px solid #d7e0eb;
+  border-radius: 11px;
+  background: white;
+  font-size: 16px;
+  color: #141b39;
+}
+
+input:focus {
+  outline: 2px solid #00a96e;
+}
+
+#moneyPage #selectedGoal {
+  margin: 20px 0 55px;
+}
+
+/* GREEN ACTION BUTTON */
+
+.primary {
+  margin-top: 36px;
+  width: 100%;
+  height: 55px;
+  border: 0;
+  border-radius: 11px;
+  background: #159b69;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.primary:hover {
+  background: #087e55;
+}
+
+/* GOAL ICON SELECTION */
+
+.icons {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.icon-choice {
+  min-width: 0;
+  padding: 9px 2px;
+  border: 1px solid #e4e8ed;
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  font-size: 23px;
+}
+
+.icon-choice span {
+  display: block;
+  font-size: 10px;
+  margin-top: 7px;
+  color: #5b6894;
+}
+
+.icon-choice.selected {
+  border-color: #00a46e;
+  background: #e7fbf1;
+}
+
+/* SUCCESS MESSAGE */
+
+#message {
+  padding: 0 20px;
+  text-align: center;
+  color: #087b54;
+}
+
+/* BOTTOM NAVIGATION */
+
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  background: white;
+  padding: 12px 5px 20px;
+  gap: 2px;
+}
+
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #707b8b;
+  font-size: 10px;
+}
+
+.bottom-nav svg {
+  width: 22px;
+  height: 22px;
+}
+
+.bottom-nav .active {
+  color: #009b68;
+}
+
+/* DESKTOP VIEW */
+
+@media (min-width: 500px) {
+  .app {
+    box-shadow: 0 0 25px #c8d0d6;
+  }
+}
