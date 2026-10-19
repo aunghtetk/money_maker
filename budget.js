@@ -1,6 +1,8 @@
 
 /* MONEY MENTOR - BUDGET AND WHAT-IF SIMULATOR */
 
+/* SAMPLE BUDGET DATA */
+
 const budgetData = {
   totalBudget: 1500,
 
@@ -48,7 +50,7 @@ const budgetData = {
   ]
 };
 
-/* MONEY FORMATTING */
+/* FORMAT MONEY */
 
 function money(value) {
   return Number(value).toLocaleString("en-US", {
@@ -66,7 +68,7 @@ function getTotalSpent() {
   );
 }
 
-/* CATEGORY LOOKUP */
+/* FIND CATEGORY */
 
 function getCategory(name) {
   return budgetData.categories.find(
@@ -95,7 +97,7 @@ function setProgress(id, percent) {
   }
 }
 
-/* BUDGET PAGE */
+/* RENDER BUDGET PAGE */
 
 function renderBudget() {
   const categoryList = document.getElementById("categoryList");
@@ -107,7 +109,7 @@ function renderBudget() {
 
   const percentage =
     budgetData.totalBudget > 0
-      ? spent / budgetData.totalBudget * 100
+      ? (spent / budgetData.totalBudget) * 100
       : 0;
 
   setText("totalBudget", money(budgetData.totalBudget));
@@ -122,14 +124,15 @@ function renderBudget() {
   budgetData.categories.forEach(category => {
     const percent =
       category.budget > 0
-        ? category.spent / category.budget * 100
+        ? (category.spent / category.budget) * 100
         : 0;
 
     const card = document.createElement("div");
     card.className = "category-card";
 
     const icon = document.createElement("div");
-    icon.className = "category-icon " + category.className;
+    icon.className =
+      "category-icon " + category.className;
 
     const iconElement = document.createElement("i");
     iconElement.setAttribute("data-lucide", category.icon);
@@ -143,7 +146,9 @@ function renderBudget() {
 
     const amounts = document.createElement("p");
     amounts.textContent =
-      money(category.spent) + " / " + money(category.budget);
+      money(category.spent) +
+      " / " +
+      money(category.budget);
 
     const progress = document.createElement("div");
     progress.className = "progress";
@@ -158,7 +163,8 @@ function renderBudget() {
 
     const percentageText = document.createElement("span");
     percentageText.className = "category-percent";
-    percentageText.textContent = Math.round(percent) + "%";
+    percentageText.textContent =
+      Math.round(percent) + "%";
     percentageText.style.color = category.color;
 
     card.append(icon, details, percentageText);
@@ -170,7 +176,7 @@ function renderBudget() {
   }
 }
 
-/* WHAT-IF SIMULATOR */
+/* WHAT-IF SIMULATOR FORM */
 
 function setupSimulator() {
   const form = document.getElementById("simulatorForm");
@@ -180,17 +186,18 @@ function setupSimulator() {
   form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const name = document
-      .getElementById("purchaseName")
-      .value.trim();
+    const nameInput =
+      document.getElementById("purchaseName");
 
-    const amount = Number(
-      document.getElementById("purchaseAmount").value
-    );
+    const amountInput =
+      document.getElementById("purchaseAmount");
 
-    const category = document
-      .getElementById("purchaseCategory")
-      .value;
+    const categoryInput =
+      document.getElementById("purchaseCategory");
+
+    const name = nameInput.value.trim();
+    const amount = Number(amountInput.value);
+    const category = categoryInput.value;
 
     if (!name || !Number.isFinite(amount) || amount <= 0) {
       alert("Please enter a valid purchase name and amount.");
@@ -203,10 +210,19 @@ function setupSimulator() {
       category: category
     };
 
-    sessionStorage.setItem(
-      "moneyMentorScenario",
-      JSON.stringify(purchase)
-    );
+    try {
+      sessionStorage.setItem(
+        "moneyMentorScenario",
+        JSON.stringify(purchase)
+      );
+    } catch (error) {
+      alert(
+        "Unable to save your scenario. " +
+        "Please open the project using Live Server."
+      );
+      console.error(error);
+      return;
+    }
 
     window.location.href = "what_if_impact.html";
   });
@@ -219,14 +235,17 @@ function renderImpact() {
 
   if (!impactName) return;
 
-  let purchase;
+  let purchase = null;
 
   try {
-    purchase = JSON.parse(
-      sessionStorage.getItem("moneyMentorScenario")
-    );
+    const savedScenario =
+      sessionStorage.getItem("moneyMentorScenario");
+
+    if (savedScenario) {
+      purchase = JSON.parse(savedScenario);
+    }
   } catch (error) {
-    purchase = null;
+    console.error("Unable to read scenario:", error);
   }
 
   if (
@@ -241,11 +260,6 @@ function renderImpact() {
 
   const category = getCategory(purchase.category);
 
-  if (!category) {
-    window.location.replace("what_if_simulator.html");
-    return;
-  }
-
   const totalSpent = getTotalSpent();
 
   const remainingBefore =
@@ -256,21 +270,13 @@ function renderImpact() {
 
   const purchasePercent =
     budgetData.totalBudget > 0
-      ? purchase.amount / budgetData.totalBudget * 100
-      : 0;
-
-  const categorySpentAfter =
-    category.spent + purchase.amount;
-
-  const categoryPercent =
-    category.budget > 0
-      ? categorySpentAfter / category.budget * 100
+      ? (purchase.amount / budgetData.totalBudget) * 100
       : 0;
 
   /* PURCHASE DETAILS */
 
   setText("impactName", purchase.name);
-  setText("impactCategory", category.name);
+  setText("impactCategory", purchase.category);
   setText("impactPrice", money(purchase.amount));
 
   /* BUDGET IMPACT */
@@ -284,39 +290,63 @@ function renderImpact() {
     Math.round(purchasePercent) + "%"
   );
 
-  if (remainingAfter < 0) {
-    document.getElementById("afterBudget")
-      .classList.add("negative");
+  const afterBudgetElement =
+    document.getElementById("afterBudget");
+
+  if (remainingAfter < 0 && afterBudgetElement) {
+    afterBudgetElement.classList.add("negative");
   }
 
   /* CATEGORY IMPACT */
 
-  setText("categoryName", category.name);
+  const categorySpentBefore =
+    category ? category.spent : 0;
+
+  const categoryBudget =
+    category ? category.budget : 0;
+
+  const categorySpentAfter =
+    categorySpentBefore + purchase.amount;
+
+  const categoryPercent =
+    categoryBudget > 0
+      ? (categorySpentAfter / categoryBudget) * 100
+      : 0;
+
+  setText("categoryName", purchase.category);
 
   setText(
     "categoryNumbers",
-    money(categorySpentAfter) + " / " + money(category.budget)
+    money(categorySpentAfter) +
+    " / " +
+    money(categoryBudget)
   );
 
   setProgress("categoryProgress", categoryPercent);
 
   /* CATEGORY WARNING */
 
-  const warning = document.getElementById("impactWarning");
+  const warning =
+    document.getElementById("impactWarning");
 
-  if (categorySpentAfter > category.budget) {
-    const overBudget =
-      categorySpentAfter - category.budget;
+  if (warning) {
+    if (!category) {
+      warning.textContent =
+        "There is no separate budget set for this category.";
+    } else if (categorySpentAfter > categoryBudget) {
+      const overBudget =
+        categorySpentAfter - categoryBudget;
 
-    warning.textContent =
-      "This purchase would put your " +
-      category.name +
-      " category over budget by " +
-      money(overBudget) + ".";
-  } else {
-    warning.textContent =
-      "This purchase is within your " +
-      category.name + " category budget.";
+      warning.textContent =
+        "This purchase would put your " +
+        category.name +
+        " category over budget by " +
+        money(overBudget) + ".";
+    } else {
+      warning.textContent =
+        "This purchase is within your " +
+        category.name + " category budget.";
+    }
   }
 
   /* SAVINGS GOAL IMPACT */
@@ -324,13 +354,17 @@ function renderImpact() {
   const savingsMessage =
     document.getElementById("savingsMessage");
 
+  if (!savingsMessage) return;
+
   if (remainingAfter < 0) {
     savingsMessage.textContent =
       "This purchase would exceed your remaining " +
       "monthly budget by " +
       money(Math.abs(remainingAfter)) +
       ". You may need to reduce spending or use savings.";
-  } else if (remainingAfter < budgetData.totalBudget * 0.10) {
+  } else if (
+    remainingAfter < budgetData.totalBudget * 0.10
+  ) {
     savingsMessage.textContent =
       "This purchase would leave only " +
       money(remainingAfter) +
@@ -345,7 +379,7 @@ function renderImpact() {
   }
 }
 
-/* INITIALIZE ALL PAGES */
+/* INITIALIZE */
 
 document.addEventListener("DOMContentLoaded", function() {
   renderBudget();

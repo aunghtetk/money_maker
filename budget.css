@@ -1,4 +1,6 @@
 
+/* GENERAL */
+
 * {
   box-sizing: border-box;
 }
@@ -15,7 +17,9 @@ a {
   text-decoration: none;
 }
 
-button, input, select {
+button,
+input,
+select {
   font: inherit;
 }
 
@@ -23,9 +27,11 @@ button, input, select {
   max-width: 430px;
   min-height: 100vh;
   margin: auto;
-  padding: 20px 12px 95px;
+  padding: 20px 12px 110px;
   background: #f5f8fa;
 }
+
+/* HEADER */
 
 .header {
   display: flex;
@@ -42,15 +48,7 @@ button, input, select {
 
 .header a {
   display: flex;
-}
-
-.header select {
-  margin-left: auto;
-  border: 1px solid #e1e7ef;
-  border-radius: 10px;
-  padding: 10px;
-  background: white;
-  font-size: 12px;
+  align-items: center;
 }
 
 .centered {
@@ -63,11 +61,252 @@ button, input, select {
   left: 0;
 }
 
+/* DESCRIPTION */
+
+.description {
+  text-align: center;
+  font-size: 13px;
+  color: #738096;
+  line-height: 1.6;
+  margin: 18px 10px 35px;
+}
+
+/* SIMULATOR FORM */
+
+.simulator-form {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 4px;
+}
+
+.simulator-form label {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 16px 0 10px;
+}
+
+.simulator-form > input,
+.simulator-form > select,
+.money-input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 14px;
+  background: white;
+  border: 1px solid #dce3eb;
+  border-radius: 9px;
+  outline-color: #009a67;
+}
+
+.money-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.money-input span {
+  font-size: 20px;
+  color: #9ca8b9;
+}
+
+.money-input input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 18px;
+}
+
+/* BUTTONS */
+
+.primary-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  border: none;
+  border-radius: 9px;
+  background: #119667;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background: #087b55;
+}
+
+.simulator-form .primary-button {
+  margin-top: 45px;
+}
+
+.outline-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  border: 1px solid #009a67;
+  border-radius: 9px;
+  color: #008e60;
+  background: white;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* PURCHASE CARD */
+
+.purchase-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+
+.purchase-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 43px;
+  height: 43px;
+  border-radius: 10px;
+  background: #e5efff;
+  color: #2678f9;
+}
+
+.purchase-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.purchase-info strong {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.purchase-info p {
+  color: #788397;
+  font-size: 11px;
+}
+
+.purchase-card > strong {
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+/* IMPACT CARDS */
+
+.card {
+  padding: 17px;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 20px;
+  font-size: 14px;
+}
+
+.card h3 svg {
+  color: #009a67;
+  width: 20px;
+}
+
+.card > p {
+  font-size: 12px;
+  color: #758096;
+  line-height: 1.6;
+}
+
+.impact-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 15px 0;
+  font-size: 12px;
+}
+
+.impact-row span {
+  color: #788397;
+}
+
+.impact-row strong {
+  text-align: right;
+}
+
+.red,
+.negative {
+  color: #ef4e58;
+}
+
+/* PROGRESS BAR */
+
+.progress {
+  width: 100%;
+  height: 7px;
+  background: #e3e8ee;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.fill {
+  height: 100%;
+  width: 0;
+  border-radius: 20px;
+}
+
+.green {
+  background: #009a67;
+}
+
+.blue {
+  background: #2879ff;
+}
+
+/* WARNINGS */
+
+.warning {
+  margin-top: 17px;
+  padding: 12px;
+  background: #fff3df;
+  border-radius: 9px;
+  color: #a66a00;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.warning:empty {
+  display: none;
+}
+
+/* ACTION BUTTONS */
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* BUDGET PAGE SUPPORT */
+
 .budget-summary {
   display: grid;
   grid-template-columns: 1.5fr 0.7fr 0.8fr;
-  gap: 10px;
   align-items: center;
+  gap: 10px;
   padding: 16px 12px;
   background: #e9f6f1;
   border-radius: 13px;
@@ -99,24 +338,6 @@ button, input, select {
   color: #006c4b;
 }
 
-.progress {
-  width: 100%;
-  height: 7px;
-  background: #e3e8ee;
-  border-radius: 20px;
-  overflow: hidden;
-  margin: 8px 0;
-}
-
-.fill {
-  height: 100%;
-  width: 0;
-  border-radius: 20px;
-}
-
-.green { background: #009a67; }
-.blue { background: #2879ff; }
-
 .simulator-link {
   display: flex;
   align-items: center;
@@ -128,8 +349,7 @@ button, input, select {
   margin-bottom: 24px;
 }
 
-.simulator-icon,
-.purchase-icon {
+.simulator-icon {
   display: grid;
   place-items: center;
   flex-shrink: 0;
@@ -151,11 +371,6 @@ button, input, select {
   margin: 5px 0 0;
 }
 
-.simulator-link > svg:last-child {
-  width: 18px;
-  flex-shrink: 0;
-}
-
 .section-title {
   font-size: 15px;
   margin-bottom: 15px;
@@ -174,9 +389,9 @@ button, input, select {
 .category-icon {
   display: grid;
   place-items: center;
+  flex-shrink: 0;
   width: 43px;
   height: 43px;
-  flex-shrink: 0;
   border-radius: 10px;
 }
 
@@ -230,191 +445,7 @@ button, input, select {
   color: #e5a500;
 }
 
-.description {
-  text-align: center;
-  font-size: 13px;
-  color: #738096;
-  line-height: 1.6;
-  margin: 18px 10px 35px;
-}
-
-.simulator-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.simulator-form label {
-  font-size: 13px;
-  font-weight: 500;
-  margin: 15px 0 10px;
-}
-
-.simulator-form > input,
-.simulator-form > select,
-.money-input {
-  width: 100%;
-  height: 52px;
-  padding: 0 14px;
-  background: white;
-  border: 1px solid #dce3eb;
-  border-radius: 9px;
-  outline-color: #009a67;
-}
-
-.money-input {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.money-input span {
-  font-size: 20px;
-  color: #9ca8b9;
-}
-
-.money-input input {
-  width: 100%;
-  border: 0;
-  outline: 0;
-  font-size: 18px;
-}
-
-.primary-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 48px;
-  border: none;
-  border-radius: 9px;
-  background: #119667;
-  color: white;
-  font-weight: bold;
-  font-size: 13px;
-  cursor: pointer;
-}
-
-.simulator-form .primary-button {
-  margin-top: 45px;
-}
-
-.purchase-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: white;
-  border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 18px;
-}
-
-.purchase-icon {
-  background: #e5efff;
-  color: #2678f9;
-}
-
-.purchase-info {
-  flex: 1;
-}
-
-.purchase-info strong {
-  font-size: 13px;
-}
-
-.purchase-info p {
-  color: #788397;
-  font-size: 11px;
-}
-
-.purchase-card > strong {
-  font-size: 15px;
-}
-
-.card {
-  padding: 17px;
-  background: white;
-  border-radius: 12px;
-  margin-bottom: 16px;
-}
-
-.card h3 {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  margin: 0 0 20px;
-  font-size: 14px;
-}
-
-.card h3 svg {
-  color: #009a67;
-  width: 20px;
-}
-
-.card > p {
-  font-size: 12px;
-  color: #758096;
-  line-height: 1.6;
-}
-
-.impact-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  margin: 15px 0;
-  font-size: 12px;
-}
-
-.impact-row span {
-  color: #788397;
-}
-
-.impact-row strong {
-  text-align: right;
-  white-space: nowrap;
-}
-
-.red {
-  color: #ef4e58;
-}
-
-.negative {
-  color: #ef4e58;
-}
-
-.warning {
-  margin-top: 17px;
-  padding: 12px;
-  background: #fff3df;
-  border-radius: 9px;
-  color: #a66a00;
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-.warning:empty {
-  display: none;
-}
-
-.actions {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.outline-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 48px;
-  border: 1px solid #009a67;
-  border-radius: 9px;
-  color: #008e60;
-  background: white;
-  font-weight: bold;
-  font-size: 13px;
-}
+/* BOTTOM NAVIGATION */
 
 .bottom-nav {
   position: fixed;
@@ -430,13 +461,16 @@ button, input, select {
   border-top: 1px solid #eef1f4;
 }
 
-.bottom-nav a {
+.bottom-nav a,
+.bottom-nav a:visited {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 7px;
   color: #7b8593;
   font-size: 10px;
+  text-decoration: none;
 }
 
 .bottom-nav svg {
@@ -444,133 +478,7 @@ button, input, select {
   height: 21px;
 }
 
-.bottom-nav .active {
+.bottom-nav a.active,
+.bottom-nav a.active:visited {
   color: #009a67;
-}
-
-/* WHAT-IF SIMULATOR FORM */
-
-.simulator-form {
-  display: flex;
-  flex-direction: column;
-  padding: 15px 4px;
-}
-
-.simulator-form label {
-  font-size: 13px;
-  margin: 16px 0 10px;
-}
-
-.simulator-form > input,
-.simulator-form > select,
-.money-input {
-  width: 100%;
-  min-height: 50px;
-  padding: 0 14px;
-  border: 1px solid #dce3eb;
-  border-radius: 9px;
-  background: white;
-}
-
-.money-input {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.money-input input {
-  width: 100%;
-  border: none;
-  outline: none;
-  background: transparent;
-  font-size: 18px;
-}
-
-.simulator-form .primary-button {
-  margin-top: 45px;
-}
-
-/* IMPACT PAGE */
-
-.purchase-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 15px;
-  background: white;
-  border-radius: 12px;
-  margin-bottom: 18px;
-}
-
-.purchase-info {
-  flex: 1;
-}
-
-.purchase-info p {
-  color: #788397;
-  font-size: 11px;
-}
-
-.impact-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin: 15px 0;
-  font-size: 12px;
-}
-
-.impact-row span {
-  color: #788397;
-}
-
-.impact-row strong {
-  text-align: right;
-}
-
-.red, .negative {
-  color: #ef4e58;
-}
-
-.warning {
-  margin-top: 17px;
-  padding: 12px;
-  border-radius: 9px;
-  background: #fff3df;
-  color: #a66a00;
-  font-size: 12px;
-}
-
-.actions {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.outline-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 48px;
-  border: 1px solid #009a67;
-  border-radius: 9px;
-  color: #008e60;
-  background: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.primary-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 48px;
-  border: none;
-  border-radius: 9px;
-  background: #119667;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
 }
