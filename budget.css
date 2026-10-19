@@ -571,3 +571,26 @@ select {
   stroke-width: 2.2;
   transition: color 0.3s ease;
 }
+
+.category-card {
+  width: 100%;
+  border: none;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  background: #f0faf5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 154, 103, 0.12);
+}
+
+.category-card:active {
+  transform: scale(0.98);
+}
+
+.category-card:focus-visible {
+  outline: 2px solid #009a67;
+  outline-offset: 2px;
+}
