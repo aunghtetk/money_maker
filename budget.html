@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Money Mentor - Budget</title>
+  <link rel="stylesheet" href="budget.css">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="budget.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <a href="index.html" aria-label="Back">
+        <i data-lucide="arrow-left"></i>
+      </a>
+      <h1>Budget</h1>
+      <select id="monthSelect" aria-label="Select month">
+        <option>This Month</option>
+        <option>Last Month</option>
+      </select>
+    </header>
+
+    <section class="budget-summary">
+      <div class="summary-total">
+        <p>Total Budget</p>
+        <h2 id="totalBudget">$1,500.00</h2>
+        <div class="progress">
+          <div id="totalProgress" class="fill green"></div>
+        </div>
+        <small id="totalPercent">63%</small>
+      </div>
+
+      <div class="summary-number">
+        <p>Spent</p>
+        <strong id="totalSpent">$950.20</strong>
+      </div>
+
+      <div class="summary-number">
+        <p>Remaining</p>
+        <strong id="totalRemaining">$549.80</strong>
+      </div>
+    </section>
+
+    <a href="what-if-simulator.html" class="simulator-link">
+      <div class="simulator-icon">
+        <i data-lucide="chart-no-axes-column-increasing"></i>
+      </div>
+      <div>
+        <strong>What-If Simulator</strong>
+        <p>See how a potential purchase could affect your budget and goals.</p>
+      </div>
+      <i data-lucide="chevron-right"></i>
+    </a>
+
+    <section>
+      <h3 class="section-title">Category Budget</h3>
+      <div id="categoryList"></div>
+    </section>
+
+    <nav class="bottom-nav">
+      <a href="index.html"><i data-lucide="house"></i><span>Home</span></a>
+      <a href="budget.html" class="active"><i data-lucide="wallet"></i><span>Budget</span></a>
+      <a href="transactions.html"><i data-lucide="receipt-text"></i><span>Transactions</span></a>
+      <a href="ai-chat.html"><i data-lucide="message-circle"></i><span>AI Chat</span></a>
+      <a href="savings.html"><i data-lucide="target"></i><span>Goals</span></a>
+      <a href="menu.html"><i data-lucide="menu"></i><span>Menu</span></a>
+    </nav>
+  </main>
+</body>
+</html>
