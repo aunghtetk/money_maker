@@ -482,3 +482,86 @@ select {
 .bottom-nav a.active:visited {
   color: #009a67;
 }
+
+/* BEAUTIFUL CATEGORY DROPDOWN */
+
+.category-select {
+  position: relative;
+  width: 100%;
+}
+
+.category-select select {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 100%;
+  height: 55px;
+
+  padding: 0 45px 0 18px;
+
+  background: #ffffff;
+  color: #142039;
+
+  border: 1.5px solid #dce6e2;
+  border-radius: 14px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* CUSTOM DROPDOWN ARROW */
+
+.category-select::after {
+  content: "";
+  position: absolute;
+
+  right: 20px;
+  top: 50%;
+
+  width: 9px;
+  height: 9px;
+
+  border-right: 2px solid #009a67;
+  border-bottom: 2px solid #009a67;
+
+  transform: translateY(-70%) rotate(45deg);
+
+  pointer-events: none;
+  transition: transform 0.25s ease;
+}
+
+/* HOVER EFFECT */
+
+.category-select select:hover {
+  border-color: #009a67;
+  background: #fbfffd;
+}
+
+/* WHEN USER CLICKS */
+
+.category-select select:focus {
+  outline: none;
+
+  border-color: #009a67;
+
+  box-shadow:
+    0 0 0 4px rgba(0, 154, 103, 0.12),
+    0 5px 16px rgba(0, 0, 0, 0.05);
+}
+
+.category-select:focus-within::after {
+  transform: translateY(-30%) rotate(225deg);
+}
+
+/* DROPDOWN OPTIONS */
+
+.category-select select option {
+  background: white;
+  color: #142039;
+  font-size: 14px;
+}
