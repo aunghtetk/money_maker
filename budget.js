@@ -126,9 +126,15 @@ function renderBudget() {
       category.budget > 0
         ? (category.spent / category.budget) * 100
         : 0;
-
-    const card = document.createElement("div");
+    const card = document.createElement("button");
+    card.type = "button";
     card.className = "category-card";
+
+    card.addEventListener("click", function() {
+      window.location.href =
+        "category.html?name=" + encodeURIComponent(category.name);
+});
+
 
     const icon = document.createElement("div");
     icon.className =
