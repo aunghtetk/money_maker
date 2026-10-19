@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Money Mentor - Adjust Budget</title>
+
+  <link rel="stylesheet" href="category.css">
+
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="category.js" defer></script>
+</head>
+
+<body>
+  <main class="app">
+
+    <!-- HEADER -->
+    <header class="header">
+      <a href="budget.html" aria-label="Back to Budget">
+        <i data-lucide="arrow-left"></i>
+      </a>
+      <h1>Adjust Budget</h1>
+    </header>
+
+    <!-- CATEGORY SUMMARY -->
+    <section class="category-card">
+
+      <div class="category-top">
+        <div class="category-info">
+
+          <div id="categoryIcon" class="category-icon">
+            <i data-lucide="utensils"></i>
+          </div>
+
+          <strong id="categoryName">Food</strong>
+        </div>
+
+        <strong id="categoryPercent">85%</strong>
+      </div>
+
+      <p id="categoryAmount">$340 of $400</p>
+
+      <div class="progress">
+        <div id="categoryProgress" class="fill"></div>
+      </div>
+
+    </section>
+
+    <!-- ADJUST BUDGET FORM -->
+    <form id="budgetForm" class="budget-form">
+
+      <label for="budgetAmount">
+        Adjust the budget
+      </label>
+
+      <div class="money-input">
+        <span>$</span>
+        <input
+          type="number"
+          id="budgetAmount"
+          placeholder="100.00"
+          min="0.01"
+          step="0.01"
+          required
+        >
+      </div>
+
+      <button type="submit" class="primary-button">
+        Adjust Budget
+      </button>
+
+      <p id="saveMessage" class="save-message"
+         role="status" aria-live="polite"></p>
+
+    </form>
+
+  </main>
+</body>
+</html>
