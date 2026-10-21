@@ -121,10 +121,40 @@ document.getElementById("budgetForm").addEventListener(
 
     category.budget = newBudget;
 
-    localStorage.setItem(
-      "budget_" + categoryName,
-      newBudget.toString()
-    );
+// Save the individual category budget
+localStorage.setItem(
+  "budget_" + categoryName,
+  newBudget.toString()
+);
+
+// Update the shared budget data
+const savedData = localStorage.getItem("moneyMentorBudget");
+
+if (savedData) {
+  try {
+    const budgetData = JSON.parse(savedData);
+
+    if (Array.isArray(budgetData.categories)) {
+      const selectedCategory = budgetData.categories.find(
+        item => item.name === categoryName
+      );
+
+      if (selectedCategory) {
+        selectedCategory.budget = newBudget;
+
+        localStorage.setItem(
+          "moneyMentorBudget",
+          JSON.stringify(budgetData)
+        );
+      }
+    }
+  } catch (error) {
+    console.error("Could not update shared budget:", error);
+  }
+}
+
+// Return to Budget page
+window.location.href = "budget.html";
 
     renderCategory();
 
