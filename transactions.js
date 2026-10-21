@@ -133,13 +133,71 @@ function renderMood(){
     return `<div class="breakdown-row"><span class="breakdown-emoji">${m.emoji}</span><div class="breakdown-name">${m.name}<small>${matching.length} transaction${matching.length===1?'':'s'}</small></div><div class="breakdown-value">${money(amount)}<small>${sum?(amount/sum*100).toFixed(1):'0.0'}%</small></div></div>`;
   }).join('');
 }
-$('#searchInput').addEventListener('input',renderTransactions);
-document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.filter)));
-document.querySelectorAll('.type-tab').forEach(b=>b.addEventListener('click',()=>setType(b.dataset.type)));
-document.querySelectorAll('.period-tab').forEach(b=>b.addEventListener('click',()=>{activePeriod=b.dataset.period;document.querySelectorAll('.period-tab').forEach(x=>x.classList.toggle('active',x===b));renderMood()}));
-$('#addButton').addEventListener('click',openAdd);$('#floatingAdd').addEventListener('click',openAdd);
-$('#moodLink').addEventListener('click',()=>showView('moodView'));
-document.querySelectorAll('.back').forEach(b=>b.addEventListener('click',()=>showView('listView')));
-document.querySelectorAll('[data-key]').forEach(b=>b.addEventListener('click',()=>pressKey(b.dataset.key)));
-$('#transactionForm').addEventListener('submit',saveTransaction);
-setType('expense');renderTransactions();refreshIcons();
+
+/* ==========================================
+   EVENT LISTENERS
+   ========================================== */
+
+// Search transactions
+$('#searchInput').addEventListener('input', renderTransactions);
+
+// Filter transactions
+document.querySelectorAll('.tab').forEach(button => {
+  button.addEventListener('click', () => {
+    setFilter(button.dataset.filter);
+  });
+});
+
+// Switch between Expense and Income
+document.querySelectorAll('.type-tab').forEach(button => {
+  button.addEventListener('click', () => {
+    setType(button.dataset.type);
+  });
+});
+
+// Mood analytics time filters
+document.querySelectorAll('.period-tab').forEach(button => {
+  button.addEventListener('click', () => {
+    activePeriod = button.dataset.period;
+
+    document.querySelectorAll('.period-tab').forEach(tab => {
+      tab.classList.toggle('active', tab === button);
+    });
+
+    renderMood();
+  });
+});
+
+// Open Add Transaction page
+$('#addButton').addEventListener('click', openAdd);
+
+// Open Mood & Spending Patterns page
+$('#moodLink').addEventListener('click', () => {
+  showView('moodView');
+});
+
+// Back buttons
+document.querySelectorAll('.back').forEach(button => {
+  button.addEventListener('click', () => {
+    showView('listView');
+  });
+});
+
+// Number keypad
+document.querySelectorAll('[data-key]').forEach(button => {
+  button.addEventListener('click', () => {
+    pressKey(button.dataset.key);
+  });
+});
+
+// Save transaction
+$('#transactionForm').addEventListener('submit', saveTransaction);
+
+
+/* ==========================================
+   INITIALIZE PAGE
+   ========================================== */
+
+setType('expense');
+renderTransactions();
+refreshIcons();

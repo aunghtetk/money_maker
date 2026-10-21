@@ -1,13 +1,3 @@
-
-/* ==========================================
-   MONEY MENTOR - TRANSACTIONS PAGE
-   ========================================== */
-
-
-/* ==========================================
-   1. BASE STYLES
-   ========================================== */
-
 * {
   box-sizing: border-box;
 }
@@ -344,34 +334,7 @@ button {
 
 
 /* ==========================================
-   8. FLOATING ADD BUTTON
-   ========================================== */
-
-.floating-add {
-  position: fixed;
-  bottom: 92px;
-  left: calc(50% + 145px);
-
-  display: grid;
-  place-items: center;
-
-  width: 50px;
-  height: 50px;
-
-  border: 0;
-  border-radius: 50%;
-  background: #009a67;
-  color: white;
-  box-shadow: 0 4px 14px #009a6750;
-}
-
-.floating-add svg {
-  width: 24px;
-}
-
-
-/* ==========================================
-   9. ADD TRANSACTION - TYPE TABS
+   8. ADD TRANSACTION - TYPE TABS
    ========================================== */
 
 .type-tabs {
@@ -380,7 +343,7 @@ button {
 
 
 /* ==========================================
-   10. FORM LABELS
+   9. FORM LABELS
    ========================================== */
 
 .field-title {
@@ -398,7 +361,7 @@ button {
 
 
 /* ==========================================
-   11. AMOUNT INPUT
+   10. AMOUNT INPUT
    ========================================== */
 
 .amount-box {
@@ -433,7 +396,7 @@ button {
 
 
 /* ==========================================
-   12. NUMBER KEYPAD
+   11. NUMBER KEYPAD
    ========================================== */
 
 .keypad {
@@ -463,7 +426,7 @@ button {
 
 
 /* ==========================================
-   13. TRANSACTION CATEGORIES
+   12. TRANSACTION CATEGORIES
    ========================================== */
 
 .categories {
@@ -519,7 +482,7 @@ button {
 
 
 /* ==========================================
-   14. DATE AND NOTE INPUTS
+   13. DATE AND NOTE INPUTS
    ========================================== */
 
 #transactionDate,
@@ -537,7 +500,7 @@ button {
 
 
 /* ==========================================
-   15. SPENDING MOOD CHOICES
+   14. SPENDING MOOD CHOICES
    ========================================== */
 
 .mood-choices {
@@ -574,7 +537,7 @@ button {
 
 
 /* ==========================================
-   16. PRIMARY BUTTON
+   15. PRIMARY BUTTON
    ========================================== */
 
 .primary {
@@ -592,7 +555,7 @@ button {
 
 
 /* ==========================================
-   17. MOOD ANALYTICS PANEL
+   16. MOOD ANALYTICS PANEL
    ========================================== */
 
 .panel {
@@ -622,7 +585,7 @@ button {
 
 
 /* ==========================================
-   18. MOOD CHART
+   17. MOOD CHART
    ========================================== */
 
 .mood-chart {
@@ -682,7 +645,7 @@ button {
 
 
 /* ==========================================
-   19. MOOD BREAKDOWN
+   18. MOOD BREAKDOWN
    ========================================== */
 
 .breakdown-row {
@@ -742,7 +705,7 @@ button {
 
 
 /* ==========================================
-   20. BOTTOM NAVIGATION
+   19. BOTTOM NAVIGATION
    ========================================== */
 
 .bottom-nav {
@@ -794,7 +757,7 @@ button {
 
 
 /* ==========================================
-   21. TRANSITIONS AND ACCESSIBILITY
+   20. TRANSITIONS AND ACCESSIBILITY
    ========================================== */
 
 button,
@@ -814,19 +777,7 @@ input:focus-visible {
 
 
 /* ==========================================
-   22. MOBILE RESPONSIVENESS
-   ========================================== */
-
-@media (max-width: 450px) {
-  .floating-add {
-    left: auto;
-    right: 18px;
-  }
-}
-
-
-/* ==========================================
-   23. REDUCED MOTION
+   21. REDUCED MOTION
    ========================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -836,4 +787,20 @@ input:focus-visible {
     transition: none !important;
     animation: none !important;
   }
+}
+/* Lucide icons */
+
+.icon-button svg,
+.bottom-nav svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
 }
