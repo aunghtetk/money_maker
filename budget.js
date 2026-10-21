@@ -3,7 +3,7 @@
 
 /* SAMPLE BUDGET DATA */
 
-const budgetData = {
+let budgetData = {
   totalBudget: 1500,
 
   categories: [
@@ -49,6 +49,19 @@ const budgetData = {
     }
   ]
 };
+const savedBudget = localStorage.getItem("moneyMentorBudget");
+
+if (savedBudget) {
+  try {
+    const parsedBudget = JSON.parse(savedBudget);
+
+    if (parsedBudget && Array.isArray(parsedBudget.categories)) {
+      budgetData = parsedBudget;
+    }
+  } catch (error) {
+    console.error("Could not load saved budget:", error);
+  }
+}
 
 /* FORMAT MONEY */
 
