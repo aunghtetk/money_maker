@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Money Mentor - Bills</title>
+  <link rel="stylesheet" href="bills.css">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="bills.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <section id="listView">
+      <header class="header"><a href="index.html" aria-label="Back"><i data-lucide="arrow-left"></i></a><h1>Bill</h1><button class="icon-button" id="addBillBtn" aria-label="Add new bill"><i data-lucide="plus"></i></button></header>
+      <label class="search"><i data-lucide="search"></i><input id="searchBill" placeholder="Search Bill" aria-label="Search Bill"></label>
+      <div class="tabs" role="tablist" aria-label="Bill status">
+        <button class="tab active" data-tab="upcoming">Upcoming</button>
+        <button class="tab" data-tab="all">All</button>
+        <button class="tab" data-tab="paid">Paid</button>
+      </div>
+      <div id="billList" class="bill-list"></div>
+      <p id="emptyMessage" class="empty" hidden>No bills to show.</p>
+    </section>
+    <section id="addView" class="hidden">
+      <header class="header"><button class="icon-button back-list" aria-label="Back"><i data-lucide="arrow-left"></i></button><h1>Add New Bill</h1></header>
+      <form id="addBillForm" class="form">
+        <label>Bill Name<input id="billName" placeholder="Rent" maxlength="60" required></label>
+        <label>Amount<input id="billAmount" type="number" min="0.01" step="0.01" placeholder="1200.00" required></label>
+        <label>Due Date<input id="billDue" type="date" required></label>
+        <fieldset><legend>Repeat</legend><div class="repeat-options"><label><input type="radio" name="repeat" value="Monthly" checked><span>Monthly</span></label><label><input type="radio" name="repeat" value="Weekly"><span>Weekly</span></label><label><input type="radio" name="repeat" value="Yearly"><span>Yearly</span></label><label><input type="radio" name="repeat" value="One time"><span>One time</span></label></div></fieldset>
+        <label class="switch-row"><span><strong>Payment Reminder</strong><small>Show a notification before the due date</small></span><input id="billReminder" type="checkbox"></label>
+        <label class="switch-row"><span><strong>Auto Pay</strong><small>Mark if this bill is set to auto pay</small></span><input id="billAuto" type="checkbox"></label>
+        <button class="primary" type="submit">Save Bill</button>
+      </form>
+    </section>
+    <section id="payView" class="hidden">
+      <header class="header"><button class="icon-button back-list" aria-label="Back"><i data-lucide="arrow-left"></i></button><h1>Bill</h1></header>
+      <div class="pay-details"><div class="large-icon"><i data-lucide="receipt"></i></div><h2 id="payName"></h2><p id="payDue"></p><label for="payAmount">The Amount</label><div class="amount-display" id="payAmount"></div><p id="payStatus"></p><button class="primary" id="confirmPay">Pay</button></div>
+    </section>
+    <nav class="bottom-nav"><a href="index.html"><i data-lucide="house"></i><span>Home</span></a><a href="budget.html"><i data-lucide="wallet"></i><span>Budget</span></a><a href="transactions.html"><i data-lucide="receipt-text"></i><span>Transactions</span></a><a href="ai-chat.html"><i data-lucide="message-circle"></i><span>AI Chat</span></a><a href="savings.html"><i data-lucide="target"></i><span>Goals</span></a><a href="menu.html"><i data-lucide="menu"></i><span>Menu</span></a></nav>
+  </main>
+</body>
+</html>
