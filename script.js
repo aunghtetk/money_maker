@@ -28,13 +28,6 @@ document.getElementById("survival")
   .addEventListener("click", () => {
     showMessage("Student Survival Mode coming soon.");
   });
-
-// Upcoming Bills
-document.getElementById("seeAll")
-  .addEventListener("click", () => {
-    showMessage("Upcoming Bills page coming soon.");
-  });
-
 // Pandora AI
 document.getElementById("adjust")
   .addEventListener("click", () => {
