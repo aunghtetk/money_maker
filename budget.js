@@ -126,6 +126,7 @@ function renderBudget() {
       category.budget > 0
         ? (category.spent / category.budget) * 100
         : 0;
+
     const card = document.createElement("button");
     card.type = "button";
     card.className = "category-card";
