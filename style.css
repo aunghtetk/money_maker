@@ -747,3 +747,20 @@ button {
   outline: 2px solid #008f6b;
   outline-offset: 3px;
 }
+/* SEE ALL LINK */
+
+#seeAll {
+  background: transparent;
+  border: none;
+  color: #008f6b;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#seeAll:hover {
+  color: #006b50;
+  text-decoration: underline;
+}
