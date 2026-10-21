@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Money Mentor - Transactions</title>
+  <link rel="stylesheet" href="transactions.css">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="transactions.js" defer></script>
+</head>
+<body>
+<main class="app">
+  <section id="listView" class="view">
+    <header class="page-header"><h1>Transactions</h1><button id="addButton" class="icon-button" aria-label="Add transaction"><i data-lucide="plus"></i></button></header>
+    <label class="search"><i data-lucide="search"></i><input id="searchInput" placeholder="Search transactions" aria-label="Search transactions"></label>
+    <div class="tabs" role="group" aria-label="Transaction filter">
+      <button class="tab active" data-filter="all">All</button><button class="tab" data-filter="income">Income</button><button class="tab" data-filter="expense">Expense</button>
+    </div>
+    <button id="moodLink" class="mood-link"><span class="mood-symbol"><i data-lucide="chart-column-increasing"></i></span><span><strong>Mood &amp; Spending Patterns</strong><small>See how emotions affect your spending</small></span><i data-lucide="chevron-right"></i></button>
+    <div id="transactionGroups"></div>
+    <p id="emptyMessage" class="empty" hidden>No transactions found.</p>
+    <button id="floatingAdd" class="floating-add" aria-label="Add transaction"><i data-lucide="plus"></i></button>
+  </section>
+  <section id="addView" class="view" hidden>
+    <header class="page-header"><button class="icon-button back" aria-label="Back"><i data-lucide="arrow-left"></i></button><h1>Add Transaction</h1><span class="header-space"></span></header>
+    <div class="tabs type-tabs"><button class="type-tab active" data-type="expense">Expense</button><button class="type-tab" data-type="income">Income</button></div>
+    <form id="transactionForm">
+      <label class="field-title" for="amountInput">Amount</label>
+      <div class="amount-box"><span>$</span><input id="amountInput" type="text" inputmode="none" readonly value="0.00" aria-label="Transaction amount"></div>
+      <div class="keypad" aria-label="Amount keypad"><button type="button" data-key="1">1</button><button type="button" data-key="2">2</button><button type="button" data-key="3">3</button><button type="button" data-key="4">4</button><button type="button" data-key="5">5</button><button type="button" data-key="6">6</button><button type="button" data-key="7">7</button><button type="button" data-key="8">8</button><button type="button" data-key="9">9</button><button type="button" data-key=".">.</button><button type="button" data-key="0">0</button><button type="button" data-key="back" aria-label="Delete digit"><i data-lucide="delete"></i></button></div>
+      <label class="field-title">Category</label><div id="categoryOptions" class="categories"></div>
+      <label class="field-title" for="transactionDate">Date</label><input id="transactionDate" type="date" required>
+      <label class="field-title" for="transactionNote">Note (optional)</label><input id="transactionNote" type="text" maxlength="100" placeholder="Add a note...">
+      <div id="moodField"><div class="field-title">Spending Mood (optional)</div><p class="field-subtitle">How did you feel when making this purchase?</p><div class="mood-choices" id="moodChoices"></div></div>
+      <button class="primary" type="submit">Save Transaction</button>
+    </form>
+  </section>
+  <section id="moodView" class="view" hidden>
+    <header class="page-header"><button class="icon-button back" aria-label="Back"><i data-lucide="arrow-left"></i></button><h1>Mood &amp; Spending Patterns</h1><span class="header-space"></span></header>
+    <div class="tabs mood-tabs"><button class="period-tab" data-period="week">This Week</button><button class="period-tab active" data-period="month">This Month</button><button class="period-tab" data-period="all">All Time</button></div>
+    <section class="panel"><h2>Total Spending by Mood</h2><p id="moodTotal" class="mood-total"></p><div id="moodChart" class="mood-chart"></div></section>
+    <section class="panel"><h2>Mood Breakdown</h2><div id="moodBreakdown"></div></section>
+  </section>
+</main>
+<nav class="bottom-nav" aria-label="Main navigation"><a href="index.html"><i data-lucide="house"></i>Home</a><a href="budget.html"><i data-lucide="wallet"></i>Budget</a><a class="current" href="transactions.html"><i data-lucide="arrow-left-right"></i>Transactions</a><a href="ai-chat.html"><i data-lucide="bot"></i>AI Chat</a><a href="savings.html"><i data-lucide="target"></i>Goals</a><a href="menu.html"><i data-lucide="menu"></i>Menu</a></nav>
+</body>
+</html>
