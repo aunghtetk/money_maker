@@ -350,6 +350,7 @@ legend {
   grid-template-columns: repeat(6, minmax(0, 1fr));
   background: white;
   padding: 15px 8px 22px;
+  bottom: 0;
 }
 
 .bottom-nav a {
