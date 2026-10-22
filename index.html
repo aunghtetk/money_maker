@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,108 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Money Mentor Dashboard</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
   <main class="app">
+    <!-- 1. HEADER -->
     <header class="header">
       <div>
         <p class="muted">Good Morning</p>
         <h1>User Name 👋</h1>
       </div>
-      <button class="avatar">♙</button>
+      <button class="avatar" type="button">♙</button>
     </header>
 
+    <!-- 2. AVAILABLE BALANCE -->
     <section class="balance card">
       <div class="balance-top">
         <div>
           <p>Available Balance</p>
           <h2 id="balance">$4,250.80</h2>
         </div>
-        <button id="toggleBalance">◉</button>
+        <button id="toggleBalance" type="button" aria-label="Show or hide balance">◉</button>
       </div>
-
       <div class="balance-stats">
-        <div>
-          <span class="circle green">↑</span>
-          <span>Income<strong>$5,200.00</strong></span>
-        </div>
-        <div>
-          <span class="circle pink">↓</span>
-          <span>Spent<strong>$950.20</strong></span>
-        </div>
-        <div>
-          <span class="circle green">♣</span>
-          <span>Saved<strong>$800.00</strong></span>
-        </div>
+        <div><span class="circle green">↑</span><span>Income<strong>$5,200.00</strong></span></div>
+        <div><span class="circle pink">↓</span><span>Spent<strong>$950.20</strong></span></div>
+        <div><span class="circle green">♣</span><span>Saved<strong>$800.00</strong></span></div>
       </div>
     </section>
 
-    <button class="survival card" id="survival">
-      <span class="survival-icon">🎓</span>
-      <span>
-        <strong>Student Survival Mode</strong>
-        <small>Make your money last until payday.</small>
-      </span>
-      <b>›</b>
-    </button>
+    <!-- 3. STUDENT SURVIVAL MODE -->
+    <a href="survival.html" class="student-survival-card">
+      <div class="survival-icon">🎓</div>
+      <div class="survival-content">
+        <h3>Student Survival Mode</h3>
+        <p>Make your money last until payday.</p>
+      </div>
+      <i data-lucide="chevron-right" class="survival-arrow"></i>
+    </a>
 
-    
-<section class="bills card">
+    <!-- 4. UPCOMING BILLS -->
+    <section class="bills card">
+      <div class="section-title">
+        <h3>Upcoming Bills</h3>
+        <a href="bills.html" id="seeAll">See all</a>
+      </div>
+      <div class="bill">
+        <span class="bill-icon rent"><i data-lucide="house"></i></span>
+        <span>Rent</span>
+        <span class="bill-amount">$1,200.00<small>Jan 1, 2026</small></span>
+      </div>
+      <div class="bill">
+        <span class="bill-icon phone"><i data-lucide="smartphone"></i></span>
+        <span>Phone</span>
+        <span class="bill-amount">$80.00<small>Jan 1, 2026</small></span>
+      </div>
+      <div class="bill">
+        <span class="bill-icon electric"><i data-lucide="zap"></i></span>
+        <span>Electricity</span>
+        <span class="bill-amount">$120.00<small>Jan 1, 2026</small></span>
+      </div>
+    </section>
 
-  <div class="section-title">
-    <h3>Upcoming Bills</h3>
-    <a href="bills.html" id="seeAll">See all </a>
-  </div>
-
-  <!-- Rent -->
-  <div class="bill">
-    <span class="bill-icon rent">
-      <i data-lucide="house"></i>
-    </span>
-    <span>Rent</span>
-    <span class="bill-amount">
-      $1,200.00
-      <small>Jan 1, 2026</small>
-    </span>
-  </div>
-
-  <!-- Phone -->
-  <div class="bill">
-    <span class="bill-icon phone">
-      <i data-lucide="smartphone"></i>
-    </span>
-    <span>Phone</span>
-    <span class="bill-amount">
-      $80.00
-      <small>Jan 1, 2026</small>
-    </span>
-  </div>
-
-  <!-- Electricity -->
-  <div class="bill">
-    <span class="bill-icon electric">
-      <i data-lucide="zap"></i>
-    </span>
-    <span>Electricity</span>
-    <span class="bill-amount">
-      $120.00
-      <small>Jan 1, 2026</small>
-    </span>
-  </div>
-
-</section>
-
-
+    <!-- 5. MONTHLY SPENDING + SAVINGS + AI -->
     <div class="columns">
       <section class="spending card">
         <h3>Monthly Spending</h3>
-        <div class="donut">
-          <div class="donut-center">
-            <strong>$549.80</strong>
-            <small>Remaining</small>
-          </div>
-        </div>
+        <div class="donut"><div class="donut-center"><strong>$549.80</strong><small>Remaining</small></div></div>
         <div class="legend">
           <div>Food <span>25%</span></div>
           <div>Shopping <span>20%</span></div>
@@ -116,86 +81,43 @@
           <div>Other <span>15%</span></div>
         </div>
       </section>
-
       <div class="right-column">
-       
         <a href="savings.html" class="savings-link">
-        <section class="savings card">
+          <section class="savings card">
             <h3>Savings</h3>
-
             <div class="savings-row">
-            <span>💰</span>
-
-            <div>
-                <div class="savings-name">
-                Emergency Fund <b>40%</b>
-                </div>
-
-                <div class="progress">
-                <div></div>
-                </div>
-
+              <span>💰</span>
+              <div>
+                <div class="savings-name">Emergency Fund <b>40%</b></div>
+                <div class="progress"><div></div></div>
                 <small>$800 of $2,000</small>
+              </div>
             </div>
-            </div>
-        </section>
+          </section>
         </a>
-
-
         <section class="ai card">
-          <div class="ai-heading">
-            <span>🤖</span>
-            <strong>Pandora AI</strong>
-          </div>
+          <div class="ai-heading"><span>🤖</span><strong>Pandora AI</strong></div>
           <p>Do you want to change the budget?</p>
-          <button id="adjust">Adjust Budget</button>
+          <button id="adjust" type="button">Adjust Budget</button>
         </section>
       </div>
     </div>
 
-    
-    <nav class="bottom-nav">
-
-  <button class="active" data-page="Home">
-    <i data-lucide="house"></i>
-    <span>Home</span>
-  </button>
-  <a href="budget.html" class="nav-link">
-    <i data-lucide="wallet"></i>
-    <span>Budget</span>
-  </a>  
-  <a href="transactions.html">
-    <i data-lucide="receipt-text"></i>
-    <span>Transactions</span>
-  </a>
-
-  <button data-page="AI Chat">
-    <i data-lucide="message-circle"></i>
-    <span>AI Chat</span>
-  </button>
-
-  <button data-page="Goals"> 
-    <a href="savings.html" class="nav-link" data-page="Goals">
-    <i data-lucide="target"></i>
-    <span>Goals</span>
-    </a>
-
-  </button>
-
-  <button data-page="Menu">
-    <i data-lucide="menu"></i>
-    <span>Menu</span>
-  </button>
-
+    <!-- 6. BOTTOM NAVIGATION -->
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <button class="active" type="button" data-page="Home"><i data-lucide="house"></i><span>Home</span></button>
+      <a href="budget.html" class="nav-link"><i data-lucide="wallet"></i><span>Budget</span></a>
+      <a href="transactions.html" class="nav-link"><i data-lucide="receipt-text"></i><span>Transactions</span></a>
+      <button type="button" data-page="AI Chat"><i data-lucide="message-circle"></i><span>AI Chat</span></button>
+      <a href="savings.html" class="nav-link"><i data-lucide="target"></i><span>Goals</span></a>
+      <button type="button" data-page="Menu"><i data-lucide="menu"></i><span>Menu</span></button>
     </nav>
-
   </main>
 
+  <!-- 7. INFORMATION DIALOG -->
   <dialog id="messageDialog">
     <p id="dialogText"></p>
-    <button id="closeDialog">Close</button>
+    <button id="closeDialog" type="button">Close</button>
   </dialog>
-
-  <script src="script.js"></script>
 </body>
 </html>

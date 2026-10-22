@@ -482,6 +482,11 @@ select {
 .bottom-nav a.active:visited {
   color: #009a67;
 }
+.bottom-nav button:hover,
+.bottom-nav .nav-link:hover {
+  color: #008f6b;
+}
+
 
 /* BEAUTIFUL CATEGORY DROPDOWN */
 

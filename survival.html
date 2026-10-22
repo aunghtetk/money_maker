@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Money Mentor | Student Survival Mode</title>
+  <link rel="stylesheet" href="survival.css">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="survival.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="header"><button class="back" id="backButton" aria-label="Go back"><i data-lucide="chevron-left"></i></button><h1>Student Survival Mode</h1></header>
+    <section id="formView" class="view">
+      <p class="intro">Find out how much you can spend each day without running short before your next income.</p>
+      <form id="budgetForm">
+        <label class="field-label" for="availableMoney">How much money do you have?</label>
+        <div class="money-field"><span>$</span><input id="availableMoney" type="number" inputmode="decimal" min="0" step="0.01" value="500" required aria-label="Available money in dollars"></div>
+        <section class="card bills-card">
+          <div class="section-head"><h2>Upcoming Bills</h2><span class="pill">Auto-detected</span></div>
+          <div id="billChoices"></div>
+          <div class="total-row"><strong>Total Upcoming Bills:</strong><strong id="billsTotal">$0.00</strong></div>
+        </section>
+        <label class="field-label" for="daysUntilIncome">How many days until your next income?</label>
+        <div class="days-field"><input id="daysUntilIncome" type="number" min="1" step="1" value="10" required><span>days</span></div>
+        <p id="formError" class="error" role="alert" hidden></p>
+        <button type="submit" class="primary">Calculate My Daily Budget</button>
+      </form>
+    </section>
+    <section id="resultView" class="view" hidden>
+      <div class="result-intro"><div class="check-circle"><i data-lucide="check"></i></div><h2>Your Daily Budget Is Ready!</h2><p>Here's how to make your money last until your next income.</p></div>
+      <section class="daily-card"><p>You Can Spend Up To</p><div class="daily-amount"><strong id="dailyAmount">$0.00</strong><span>/ day</span></div><p id="daysSummary">For the next 10 days</p></section>
+      <section class="card breakdown"><h2>Your Budget Breakdown</h2><div class="summary-row"><span>Available Money</span><strong id="summaryMoney"></strong></div><div class="summary-row"><span>Upcoming Bills</span><strong id="summaryBills"></strong></div><div class="summary-row remaining"><strong>Money Left to Spend</strong><strong id="summaryRemaining"></strong></div><h3>Upcoming Bills Included</h3><div id="includedBills"></div></section>
+      <section class="tip"><i data-lucide="lightbulb"></i><div><h3>Money Mentor Tip</h3><p id="tipText"></p></div></section>
+      <button type="button" id="recalculate" class="secondary">Edit My Budget</button>
+    </section>
+    <nav class="bottom-nav" aria-label="Main navigation"><a href="index.html"><i data-lucide="house"></i><span>Home</span></a><a href="budget.html"><i data-lucide="wallet"></i><span>Budget</span></a><a href="transactions.html"><i data-lucide="receipt-text"></i><span>Transactions</span></a><a href="chatbot.html"><i data-lucide="message-circle"></i><span>AI Chat</span></a><a href="savings.html"><i data-lucide="target"></i><span>Goals</span></a><a href="menu.html"><i data-lucide="menu"></i><span>Menu</span></a></nav>
+  </main>
+</body>
+</html>

@@ -168,57 +168,64 @@ button {
 }
 
 /* ==============================
-   STUDENT SURVIVAL MODE
+   STUDENT SURVIVAL MODE CARD
    ============================== */
 
-.survival {
-  width: 100%;
+.student-survival-card {
   display: flex;
   align-items: center;
-  text-align: left;
-  gap: 15px;
-  padding: 22px 18px;
-  margin-bottom: 14px;
-  border: 1px solid #d1e9d9;
-  background: #eaf7ee;
+  gap: 16px;
+
+  background: #e8f7ed;
+  border: 1px solid #d2ecdb;
+  border-radius: 18px;
+
+  padding: 22px 20px;
+  margin: 12px 0 14px;
+
+  text-decoration: none;
+  color: #142039;
+  cursor: pointer;
 }
 
 .survival-icon {
-  width: 50px;
-  height: 50px;
-  flex-shrink: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-radius: 12px;
-  background: #dcf4e4;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+
+  background: #d9f3e3;
+  border-radius: 13px;
   font-size: 25px;
 }
 
-.survival > span:nth-child(2) {
+.survival-content {
   flex: 1;
+  min-width: 0;
 }
 
-.survival strong {
-  display: block;
+.survival-content h3 {
+  margin: 0 0 5px;
   font-size: 17px;
-  margin-bottom: 5px;
+  font-weight: 700;
+  color: #202b38;
 }
 
-.survival small {
-  display: block;
+.survival-content p {
+  margin: 0;
   font-size: 13px;
-  color: #27334a;
+  color: #42546b;
 }
 
-.survival b {
-  font-size: 28px;
-  color: #008b66;
+.survival-arrow {
+  width: 22px;
+  height: 22px;
+  color: #009b68;
+  flex-shrink: 0;
 }
-
-/* ==============================
-   UPCOMING BILLS
-   ============================== */
 
 /* ==============================
    UPCOMING BILLS
@@ -670,24 +677,7 @@ button {
 .bottom-nav a:hover {
   color: #009965;
 }
-.bottom-nav a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
 
-  min-width: 0;
-  padding: 5px 1px;
-
-  border: none;
-  background: transparent;
-  color: #7c8491;
-
-  font-size: 11px;
-  text-decoration: none;
-  cursor: pointer;
-}
 /* ICONS */
 
 .bottom-nav button svg,
