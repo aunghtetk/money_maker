@@ -1,1 +1,566 @@
-:root{font-family:Arial,Helvetica,sans-serif;color:#0c153a;background:#f5f7f9;font-synthesis:none}*{box-sizing:border-box}body{margin:0}.app{max-width:430px;min-height:100dvh;margin:auto;padding:0 21px 100px;position:relative;background:#f5f7f9}.header{display:flex;align-items:center;gap:12px;padding:43px 0 20px}.header h1{font-size:19px;margin:0;font-weight:750}.back{border:0;background:none;padding:0;display:grid;place-items:center;color:#0c153a;cursor:pointer}.back svg{width:25px}.intro{font-size:14px;line-height:1.5;color:#63718a;margin:6px 0 24px}.field-label{display:block;font-size:14px;font-weight:750;margin:0 0 10px}.money-field,.days-field{height:57px;background:white;border:1px solid #d8e0e5;border-radius:10px;display:flex;align-items:center;padding:0 16px;margin-bottom:23px}.money-field span{font-size:23px;font-weight:750}.money-field input,.days-field input{min-width:0;width:100%;border:0;outline:0;background:transparent;color:#0c153a;font:700 23px Arial}.money-field input{padding-left:1px}.days-field span{color:#63718a;font-size:14px}.days-field{margin-bottom:23px}.card{background:white;border-radius:15px;padding:17px;margin-bottom:25px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px}.section-head h2,.breakdown h2{font-size:14px;margin:0}.pill{background:#e7f7ee;color:#008b60;font-size:11px;font-weight:700;padding:6px 10px;border-radius:20px}.bill-row{display:flex;align-items:center;gap:12px;padding:9px 0}.bill-row input{accent-color:#008d65;width:20px;height:20px;margin:0;cursor:pointer;flex-shrink:0}.bill-info{flex:1;min-width:0}.bill-name{display:block;font-size:14px;font-weight:600}.bill-due{display:block;color:#64718a;font-size:12px;margin-top:4px}.bill-amount{font-size:14px;font-weight:750}.total-row{display:flex;justify-content:space-between;border-top:1px solid #e8edf1;padding-top:17px;margin-top:13px;font-size:13px}.primary{width:100%;background:#008d65;border:0;color:white;font-size:15px;font-weight:700;border-radius:9px;min-height:51px;cursor:pointer}.primary:hover{background:#007653}.error{color:#b42318;font-size:13px}.result-intro{text-align:center;padding:0 12px 14px}.check-circle{margin:0 auto 11px;border-radius:50%;width:50px;height:50px;display:grid;place-items:center;background:#e4f5ea;color:#008d65}.check-circle svg{width:34px;height:34px}.result-intro h2{font-size:19px;margin:0 0 10px}.result-intro p{font-size:13px;line-height:1.45;color:#63718a;margin:0}.daily-card{background:#e4f7e9;text-align:center;border-radius:14px;padding:18px 8px;margin-bottom:15px}.daily-card p{margin:0;font-size:13px}.daily-card p:last-child{color:#63718a;margin-top:8px}.daily-amount{display:flex;justify-content:center;align-items:baseline;gap:6px;color:#008d65;margin:8px 0}.daily-amount strong{font-size:37px}.daily-amount span{font-size:18px}.breakdown{margin-bottom:15px}.breakdown h2{margin-bottom:15px}.summary-row{display:flex;justify-content:space-between;gap:12px;margin:0 0 14px;font-size:13px}.summary-row span{color:#63718a}.summary-row.remaining{border-top:1px solid #e7eaee;padding-top:14px;margin-top:7px}.remaining strong:last-child{color:#008d65}.breakdown h3{font-size:13px;border-top:1px solid #e7eaee;padding-top:16px;margin:0 0 10px}.included-row{display:flex;align-items:center;gap:9px;font-size:12px;margin:12px 0}.included-row svg{width:16px;height:16px;color:#008d65}.included-row .name{flex:1}.included-row .due{color:#63718a}.included-row strong{margin-left:auto}.tip{display:flex;gap:13px;background:#e8f7ed;border-radius:14px;padding:17px;margin-bottom:12px}.tip svg{color:#008d65;flex-shrink:0;width:19px}.tip h3{color:#008d65;font-size:13px;margin:0 0 8px}.tip p{font-size:12px;line-height:1.45;margin:0}.secondary{width:100%;background:transparent;border:1px solid #008d65;color:#008d65;border-radius:9px;padding:12px;font-weight:700;cursor:pointer}.bottom-nav{position:absolute;bottom:0;left:0;right:0;background:#fff;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));padding:13px 5px 21px;gap:2px}.bottom-nav a{display:flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;color:#657181;font-size:10px;white-space:nowrap}.bottom-nav svg{width:23px;height:23px}.view[hidden]{display:none}@media(min-width:431px){.app{box-shadow:0 0 20px #00000010}}@media(max-width:355px){.app{padding-left:14px;padding-right:14px}.bottom-nav a{font-size:9px}}
+
+/* ==========================================
+   MONEY MENTOR - STUDENT SURVIVAL MODE
+   ========================================== */
+
+
+/* ==========================================
+   1. GLOBAL STYLES
+   ========================================== */
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0c153a;
+  background: #f5f7f9;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+
+/* ==========================================
+   2. MAIN APP CONTAINER
+   ========================================== */
+
+.app {
+  max-width: 430px;
+  min-height: 100dvh;
+  margin: auto;
+  padding: 0 21px 100px;
+  position: relative;
+  background: #f5f7f9;
+}
+
+
+/* ==========================================
+   3. PAGE HEADER
+   ========================================== */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 43px 0 20px;
+}
+
+.header h1 {
+  font-size: 19px;
+  margin: 0;
+  font-weight: 750;
+}
+
+/* Back Button */
+
+.back {
+  border: 0;
+  background: none;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  color: #0c153a;
+  cursor: pointer;
+}
+
+.back svg {
+  width: 25px;
+}
+
+
+/* ==========================================
+   4. INTRODUCTION TEXT
+   ========================================== */
+
+.intro {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #63718a;
+  margin: 6px 0 24px;
+}
+
+
+/* ==========================================
+   5. FORM LABELS
+   ========================================== */
+
+.field-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 750;
+  margin: 0 0 10px;
+}
+
+
+/* ==========================================
+   6. MONEY AND DAYS INPUT FIELDS
+   ========================================== */
+
+.money-field,
+.days-field {
+  height: 57px;
+  background: white;
+  border: 1px solid #d8e0e5;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 16px;
+  margin-bottom: 23px;
+}
+
+/* Available Money */
+
+.money-field span {
+  font-size: 23px;
+  font-weight: 750;
+}
+
+/* Shared Input Styles */
+
+.money-field input,
+.days-field input {
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #0c153a;
+  font: 700 23px Arial;
+}
+
+.money-field input {
+  padding-left: 1px;
+}
+
+/* Days Until Next Income */
+
+.days-field span {
+  color: #63718a;
+  font-size: 14px;
+}
+
+.days-field {
+  margin-bottom: 23px;
+}
+
+
+/* ==========================================
+   7. COMMON CARD DESIGN
+   ========================================== */
+
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 17px;
+  margin-bottom: 25px;
+}
+
+
+/* ==========================================
+   8. UPCOMING BILLS SECTION
+   ========================================== */
+
+/* Section Header */
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.section-head h2,
+.breakdown h2 {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Automatically Detected Badge */
+
+.pill {
+  background: #e7f7ee;
+  color: #008b60;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+
+/* Individual Bill Row */
+
+.bill-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 0;
+}
+
+/* Bill Checkbox */
+
+.bill-row input {
+  accent-color: #008d65;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Bill Information */
+
+.bill-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.bill-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.bill-due {
+  display: block;
+  color: #64718a;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Bill Amount */
+
+.bill-amount {
+  font-size: 14px;
+  font-weight: 750;
+}
+
+/* Total Upcoming Bills */
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e8edf1;
+  padding-top: 17px;
+  margin-top: 13px;
+  font-size: 13px;
+}
+
+
+/* ==========================================
+   9. PRIMARY BUTTON
+   ========================================== */
+
+.primary {
+  width: 100%;
+  background: #008d65;
+  border: 0;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 9px;
+  min-height: 51px;
+  cursor: pointer;
+}
+
+.primary:hover {
+  background: #007653;
+}
+
+/* Form Error Messages */
+
+.error {
+  color: #b42318;
+  font-size: 13px;
+}
+
+
+/* ==========================================
+   10. DAILY BUDGET RESULTS HEADER
+   ========================================== */
+
+.result-intro {
+  text-align: center;
+  padding: 0 12px 14px;
+}
+
+/* Success Icon */
+
+.check-circle {
+  margin: 0 auto 11px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+  place-items: center;
+
+  background: #e4f5ea;
+  color: #008d65;
+}
+
+.check-circle svg {
+  width: 34px;
+  height: 34px;
+}
+
+/* Results Text */
+
+.result-intro h2 {
+  font-size: 19px;
+  margin: 0 0 10px;
+}
+
+.result-intro p {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #63718a;
+  margin: 0;
+}
+
+
+/* ==========================================
+   11. SAFE DAILY SPENDING CARD
+   ========================================== */
+
+.daily-card {
+  background: #e4f7e9;
+  text-align: center;
+  border-radius: 14px;
+  padding: 18px 8px;
+  margin-bottom: 15px;
+}
+
+.daily-card p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.daily-card p:last-child {
+  color: #63718a;
+  margin-top: 8px;
+}
+
+/* Daily Spending Amount */
+
+.daily-amount {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 6px;
+
+  color: #008d65;
+  margin: 8px 0;
+}
+
+.daily-amount strong {
+  font-size: 37px;
+}
+
+.daily-amount span {
+  font-size: 18px;
+}
+
+
+/* ==========================================
+   12. BUDGET BREAKDOWN
+   ========================================== */
+
+.breakdown {
+  margin-bottom: 15px;
+}
+
+.breakdown h2 {
+  margin-bottom: 15px;
+}
+
+/* Summary Rows */
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 14px;
+  font-size: 13px;
+}
+
+.summary-row span {
+  color: #63718a;
+}
+
+/* Remaining Money */
+
+.summary-row.remaining {
+  border-top: 1px solid #e7eaee;
+  padding-top: 14px;
+  margin-top: 7px;
+}
+
+.remaining strong:last-child {
+  color: #008d65;
+}
+
+/* Included Bills Heading */
+
+.breakdown h3 {
+  font-size: 13px;
+  border-top: 1px solid #e7eaee;
+  padding-top: 16px;
+  margin: 0 0 10px;
+}
+
+/* Included Bill Rows */
+
+.included-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  margin: 12px 0;
+}
+
+.included-row svg {
+  width: 16px;
+  height: 16px;
+  color: #008d65;
+}
+
+.included-row .name {
+  flex: 1;
+}
+
+.included-row .due {
+  color: #63718a;
+}
+
+.included-row strong {
+  margin-left: auto;
+}
+
+
+/* ==========================================
+   13. MONEY MENTOR TIP
+   ========================================== */
+
+.tip {
+  display: flex;
+  gap: 13px;
+  background: #e8f7ed;
+  border-radius: 14px;
+  padding: 17px;
+  margin-bottom: 12px;
+}
+
+.tip svg {
+  color: #008d65;
+  flex-shrink: 0;
+  width: 19px;
+}
+
+.tip h3 {
+  color: #008d65;
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+
+.tip p {
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+
+/* ==========================================
+   14. SECONDARY BUTTON
+   ========================================== */
+
+.secondary {
+  width: 100%;
+  background: transparent;
+  border: 1px solid #008d65;
+  color: #008d65;
+  border-radius: 9px;
+  padding: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+/* ==========================================
+   15. BOTTOM NAVIGATION
+   ========================================== */
+
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background: #fff;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+
+  padding: 13px 5px 21px;
+  gap: 2px;
+}
+
+/* Navigation Links */
+
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+
+  text-decoration: none;
+  color: #657181;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* Navigation Icons */
+
+.bottom-nav svg {
+  width: 23px;
+  height: 23px;
+}
+
+
+/* ==========================================
+   16. PAGE VISIBILITY
+   ========================================== */
+
+.view[hidden] {
+  display: none;
+}
+
+
+/* ==========================================
+   17. RESPONSIVE DESIGN
+   ========================================== */
+
+/* Desktop / Large Screens */
+
+@media (min-width: 431px) {
+  .app {
+    box-shadow: 0 0 20px #00000010;
+  }
+}
+
+/* Small Mobile Screens */
+
+@media (max-width: 355px) {
+  .app {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .bottom-nav a {
+    font-size: 9px;
+  }
+}
